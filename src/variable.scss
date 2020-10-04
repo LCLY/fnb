@@ -1,0 +1,132 @@
+// Theme colors
+$primary-color-1: #343d46;
+$primary-color-2: #4f5b66;
+
+$secondary-color-1: #65737e;
+$secondary-color-2: #a6acb9;
+
+$tertiary-color-1: #c0c5ce;
+$tertiary-color-2: #d9dee6;
+$tertiary-color-3: #eceff5;
+$tertiary-color-4: #f1f4fc;
+
+// Status colors
+$warning-color-1: rgb(211, 43, 43);
+$warning-color-3: rgba(235, 64, 64, 0.904);
+$warning-color-2: rgb(185, 26, 26);
+
+$success-color-2: rgb(38, 228, 31);
+$success-color-3: rgba(96, 236, 138, 0.904);
+$success-color-1: rgb(31, 167, 72);
+$success-color-4: rgba(31, 168, 72, 0.904);
+
+$progress-color-3: rgba(223, 206, 56, 0.904);
+$progress-color-2: rgba(223, 184, 56, 0.904);
+$progress-color-1: rgba(218, 144, 49, 0.904);
+
+$translucent-grey: rgba(197, 197, 197, 0.637);
+
+// shadows
+$shadow: 0 0.1rem 0.5rem rgba(black, 0.15);
+$bottom-shadow: 0px 0.3rem 0.5rem rgba(black, 0.15);
+
+// z-index
+$navbar: 10;
+
+/* =================== Mixin =================== */
+// media query
+$break-small: 575px;
+$break-landscape: 480px;
+$break-tablet: 768px;
+$break-medium: 1200px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) {
+      @content;
+    }
+  } @else if $media == handhelds-landscape {
+    @media only screen and (max-height: $break-landscape) {
+      @content;
+    }
+  } @else if $media == tablet-screens {
+    @media only screen and (max-width: $break-tablet) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: $break-tablet) and (max-width: $break-medium) {
+      @content;
+    }
+  }
+}
+
+/* paddings */
+@mixin padding-func($size) {
+  padding: $size * 1rem;
+}
+@mixin padding-top-func($size) {
+  padding-top: $size * 1rem;
+}
+@mixin padding-right-func($size) {
+  padding-right: $size * 1rem;
+}
+@mixin padding-bottom-func($size) {
+  padding-bottom: $size * 1rem;
+}
+@mixin padding-left-func($size) {
+  padding-left: $size * 1rem;
+}
+
+/* margins */
+@mixin margin-func($size) {
+  margin: $size * 1rem;
+}
+@mixin margin-top-func($size) {
+  margin-top: $size * 1rem;
+}
+@mixin margin-right-func($size) {
+  margin-right: $size * 1rem;
+}
+@mixin margin-bottom-func($size) {
+  margin-bottom: $size * 1rem;
+}
+@mixin margin-left-func($size) {
+  margin-left: $size * 1rem;
+}
+
+@for $i from 1 through 10 {
+  /* paddings */
+  .padding-#{$i} {
+    @include padding-func($i);
+  }
+  .padding_t-#{$i} {
+    @include padding-top-func($i);
+  }
+  .padding_r-#{$i} {
+    @include padding-right-func($i);
+  }
+  .padding_b-#{$i} {
+    @include padding-bottom-func($i);
+  }
+  .padding_l-#{$i} {
+    @include padding-left-func($i);
+  }
+
+  /* margins */
+  .margin-#{$i} {
+    @include margin-func($i);
+  }
+  .margin_t-#{$i} {
+    @include margin-top-func($i);
+  }
+  .margin_r-#{$i} {
+    @include margin-right-func($i);
+  }
+  .margin_b-#{$i} {
+    @include margin-bottom-func($i);
+  }
+  .margin_l-#{$i} {
+    @include margin-left-func($i);
+  }
+}
+/* =================== (Mixin) =================== */
