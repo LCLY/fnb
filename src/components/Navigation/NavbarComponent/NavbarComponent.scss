@@ -75,8 +75,9 @@
 
   /* the nav links */
   &__link {
-    color: $secondary-color-1 !important;
+    cursor: pointer;
     margin-right: 1rem;
+    color: $secondary-color-1 !important;
     &:hover {
       transition: all 0.5s ease;
       color: $primary-color-1 !important;
