@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-
 /* containers */
 import Homepage from './containers/HomePage/HomePage';
 
