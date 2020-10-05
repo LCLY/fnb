@@ -1,14 +1,13 @@
 // Theme colors
-$primary-color-1: #343d46;
-$primary-color-2: #4f5b66;
+$primary-color-1: #47371d;
+$primary-color-2: #5e4826;
 
-$secondary-color-1: #65737e;
-$secondary-color-2: #a6acb9;
+$secondary-color-1: #745c32;
+$secondary-color-2: #8b6c35;
 
-$tertiary-color-1: #c0c5ce;
-$tertiary-color-2: #d9dee6;
-$tertiary-color-3: #eceff5;
-$tertiary-color-4: #f1f4fc;
+$tertiary-color-1: #baa378;
+$tertiary-color-2: #c0a172;
+$tertiary-color-4: #d3b993;
 
 // Status colors
 $warning-color-1: rgb(211, 43, 43);
@@ -41,19 +40,19 @@ $break-tablet: 768px;
 $break-medium: 1200px;
 
 @mixin respond-to($media) {
-  @if $media == handhelds {
+  @if $media == mobile {
     @media only screen and (max-width: $break-small) {
       @content;
     }
-  } @else if $media == handhelds-landscape {
+  } @else if $media == mobile-landscape {
     @media only screen and (max-height: $break-landscape) {
       @content;
     }
-  } @else if $media == tablet-screens {
+  } @else if $media == tablet {
     @media only screen and (max-width: $break-tablet) {
       @content;
     }
-  } @else if $media == medium-screens {
+  } @else if $media == medium {
     @media only screen and (min-width: $break-tablet) and (max-width: $break-medium) {
       @content;
     }

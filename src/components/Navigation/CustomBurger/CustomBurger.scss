@@ -1,0 +1,76 @@
+@import '../../../scss/variable.scss';
+.customburger {
+  &__bars {
+    // hide bars icon on desktop screen
+    // ICON
+    &-icon {
+      position: relative;
+      cursor: pointer;
+
+      // creating siblings bar
+      &,
+      &::before,
+      &::after {
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5px;
+        border-radius: 1px;
+        background-color: white;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+      }
+
+      &::before {
+        top: -0.8rem;
+      }
+      &::after {
+        top: 0.8rem;
+      }
+    }
+
+    &-div {
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      padding: 1.7rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        transition: all 0.3s ease;
+        background: $secondary-color-1;
+      }
+      &:active {
+        transition: none;
+        background: $primary-color-2;
+      }
+      align-items: center;
+    }
+
+    // hide checkbox
+    &-checkbox {
+      display: none;
+      & ~ label {
+        margin: 0;
+      }
+    }
+    // when the button is checked, find the span icon and make it transparent
+    &-checkbox:checked + &-button &-icon {
+      background-color: transparent;
+    }
+
+    &-checkbox:checked + &-button &-icon::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+    &-checkbox:checked + &-button &-icon::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+  }
+}

@@ -1,9 +1,15 @@
+@import './variable.scss';
+
 /* make the customizations */
 $theme-colors: (
-  // 'primary': red,
+  'primary': $primary-color-1,
+  'secondary': $secondary-color-1,
+  'tertiary': $tertiary-color-1,
   // 'info': tomato,
-  // 'danger': teal,
+  // 'danger': teal,,,,,,,,,
 );
+
+$font-size-base: 1.5rem;
 
 /* import bootstrap to set changes */
 @import '~bootstrap/scss/bootstrap';
