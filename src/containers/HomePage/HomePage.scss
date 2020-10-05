@@ -1,1 +1,11 @@
-@import '../../variable.scss';
+@import '../../scss/variable.scss';
+
+.home {
+  &__header {
+    width: 100%;
+    height: 20rem;
+    background: url('../../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
