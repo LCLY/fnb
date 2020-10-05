@@ -17,18 +17,18 @@ function NavbarComponent(props) {
         </Navbar.Brand>
         <Nav className="mr-auto">
           <div className="navbar__link--desktop">
-            <Nav.Link className="navbar__link" href="/">
+            <div className="navbar__link" onClick={() => props.history.push('/')}>
               Home
-            </Nav.Link>
-            <Nav.Link className="navbar__link" href="/menu">
+            </div>
+            <div className="navbar__link" onClick={() => props.history.push('/menu')}>
               Menu
-            </Nav.Link>
-            <Nav.Link className="navbar__link" href="/gallery">
+            </div>
+            <div className="navbar__link" onClick={() => props.history.push('/gallery')}>
               Gallery
-            </Nav.Link>
-            <Nav.Link className="navbar__link" href="/contact">
+            </div>
+            <div className="navbar__link" onClick={() => props.history.push('/contact')}>
               Contact
-            </Nav.Link>
+            </div>
           </div>
           <div className="navbar__link--mobile">
             <CustomBurger showElement={showDropdown} setShowElement={setShowDropdown} />

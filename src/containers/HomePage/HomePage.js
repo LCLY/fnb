@@ -22,7 +22,7 @@ function HomePage(props) {
         </div>
       </header>
       <NavbarComponent />
-      <div style={{ height: '100rem' }}>Lorem ipsum dolor sit amet</div>
+      <div style={{ height: '100rem' }}>HomePage</div>
     </div>
   );
 }
