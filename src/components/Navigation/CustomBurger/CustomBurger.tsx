@@ -2,12 +2,11 @@ import React, { Dispatch, SetStateAction } from 'react';
 import './CustomBurger.scss';
 
 type CustomBurgerProps = {
-    showElement: boolean, 
-    setShowElement: Dispatch<SetStateAction<boolean>>   
+    showElement: boolean;
+    setShowElement: Dispatch<SetStateAction<boolean>>;
 };
 
-function CustomBurger({showElement, setShowElement}:CustomBurgerProps) {
-    
+function CustomBurger({ showElement, setShowElement }: CustomBurgerProps) {
     return (
         <>
             <input

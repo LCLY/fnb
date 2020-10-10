@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarComponent from '../../components/Navigation/NavbarComponent/NavbarComponent';
 import { Button } from 'react-bootstrap';
-function GalleryPage(props) {
+function MenuPage() {
   return (
     <div>
       <header className="home__header">
@@ -20,9 +20,9 @@ function GalleryPage(props) {
         </div>
       </header>
       <NavbarComponent />
-      Gallery
+      MenuPage
     </div>
   );
 }
 
-export default GalleryPage;
+export default MenuPage;

@@ -1,7 +1,8 @@
 import React from 'react';
 import NavbarComponent from '../../components/Navigation/NavbarComponent/NavbarComponent';
 import { Button } from 'react-bootstrap';
-function ContactPage(props) {
+
+function GalleryPage() {
   return (
     <div>
       <header className="home__header">
@@ -20,9 +21,9 @@ function ContactPage(props) {
         </div>
       </header>
       <NavbarComponent />
-      ContactPage
+      Gallery
     </div>
   );
 }
 
-export default ContactPage;
+export default GalleryPage;

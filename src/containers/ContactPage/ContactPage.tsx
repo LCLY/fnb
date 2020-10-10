@@ -1,9 +1,8 @@
 import React from 'react';
-// component
 import NavbarComponent from '../../components/Navigation/NavbarComponent/NavbarComponent';
 import { Button } from 'react-bootstrap';
-import './HomePage.scss';
-function HomePage(props) {
+
+function ContactPage() {
   return (
     <div>
       <header className="home__header">
@@ -22,9 +21,9 @@ function HomePage(props) {
         </div>
       </header>
       <NavbarComponent />
-      <div style={{ height: '100rem' }}>HomePage</div>
+      ContactPage
     </div>
   );
 }
 
-export default HomePage;
+export default ContactPage;
