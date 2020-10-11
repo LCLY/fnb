@@ -8,7 +8,7 @@ function MenuPage() {
     return (
         <div>
             <HeaderComponent />
-            <NavbarComponent />
+            <NavbarComponent activePage="menu" />
             MenuPage
         </div>
     );

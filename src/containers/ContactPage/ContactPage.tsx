@@ -8,7 +8,7 @@ function ContactPage() {
     return (
         <div>
             <HeaderComponent />
-            <NavbarComponent />
+            <NavbarComponent activePage="contact" />
             ContactPage
         </div>
     );

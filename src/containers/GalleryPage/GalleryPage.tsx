@@ -7,7 +7,7 @@ function GalleryPage() {
     return (
         <div>
             <HeaderComponent />
-            <NavbarComponent />
+            <NavbarComponent activePage="gallery" />
             Gallery
         </div>
     );

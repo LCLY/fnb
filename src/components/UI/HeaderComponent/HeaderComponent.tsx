@@ -18,6 +18,9 @@ function HeaderComponent() {
                     Learn More
                 </Button>
             </div>
+            <div className="header__openhours">
+                <span className="header__openhours-text">Open Hours:</span> Mon-Fri 9am-12am
+            </div>
         </header>
     );
 }

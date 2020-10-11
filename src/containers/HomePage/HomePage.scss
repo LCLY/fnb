@@ -1,1 +1,208 @@
 @import '../../scss/variable.scss';
+
+.home {
+    // the main sections
+    &__section {
+        &-main {
+            display: flex;
+            // border-top: 5rem solid $primary-color-2;
+            // border-bottom: 5rem solid $primary-color-2;
+            @include respond-to(tablet) {
+                flex-direction: row;
+            }
+            @include respond-to(medium) {
+                flex-direction: row;
+            }
+            @include respond-to(mobile) {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    // div enclosing the two buttons
+    &__order {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+
+        @include respond-to(tablet) {
+            flex-direction: column;
+        }
+        @include respond-to(medium) {
+            flex-direction: column;
+        }
+        @include respond-to(mobile) {
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        &-button {
+            display: flex;
+            flex-direction: column;
+            height: 20rem;
+            width: 20rem;
+            border-radius: 50%;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            background: $tertiary-color-4;
+            border-bottom: 1px solid $secondary-color-2;
+            color: $primary-color-1;
+            padding: 1rem;
+            user-select: none;
+
+            @include respond-to(mobile) {
+            }
+            @include respond-to(tablet) {
+                height: 15rem;
+                width: 15rem;
+            }
+            @include respond-to(medium) {
+                height: 15rem;
+                width: 15rem;
+            }
+
+            &:first-child {
+                margin-bottom: 1rem;
+            }
+            &:hover {
+                transition: all 0.3s ease;
+                background: $secondary-color-1;
+                color: $tertiary-color-4;
+                border: 5px solid $secondary-color-2;
+            }
+
+            &-icon {
+                font-size: 5rem;
+                margin-bottom: 1rem;
+                @include respond-to(mobile) {
+                }
+                @include respond-to(tablet) {
+                    font-size: 4rem;
+                }
+                @include respond-to(medium) {
+                    font-size: 4rem;
+                }
+            }
+            &-text {
+                font-size: 1.5rem;
+                width: 20rem;
+                text-align: center;
+                @include respond-to(mobile) {
+                }
+                @include respond-to(tablet) {
+                    font-size: 1.3rem;
+                    width: 15rem;
+                }
+                @include respond-to(medium) {
+                    width: 15rem;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+
+        // the image on the right within the home order div
+        &-calltoaction {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background-image: radial-gradient(rgba(122, 119, 119, 0.5), rgba(37, 36, 36, 0.9)),
+                url('../../img/calltoaction.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 50%;
+            font-family: 'Rock Salt', cursive;
+            color: white;
+            text-align: center;
+
+            &-text {
+                font-size: 4rem;
+                @include respond-to(tablet) {
+                    font-size: 3rem;
+                    padding: 0 5rem;
+                }
+                @include respond-to(mobile) {
+                    font-size: 2rem;
+                    padding: 5rem 3rem;
+                }
+            }
+        }
+    }
+
+    // div enclosing the text menu
+    &__menu {
+        &-title {
+            display: flex;
+            align-items: center;
+            // justify-content: flex-end;
+            padding: 2rem;
+            font-size: 2rem;
+            color: $primary-color-1;
+            background: $tertiary-color-3;
+        }
+
+        // the outerdiv wrapping filter and the menu cards
+        &-outerdiv {
+        }
+
+        &-filter {
+            margin: 2rem 0;
+        }
+
+        &-search {
+            margin-top: 2rem;
+        }
+    }
+
+    // the filters
+    &__filter {
+        // the result number
+        &-result {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        // the whole div of selects
+        &-selects {
+            display: flex;
+        }
+        // A singular select
+        &-select {
+            margin-right: 1rem;
+        }
+        &-button {
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0 2rem;
+        }
+    }
+
+    // the search bar
+    &__search {
+        &-input {
+            width: 70rem;
+            margin: auto;
+            padding: 2.5rem 5rem;
+            background: $primary-color-2;
+            border-radius: 0.5rem;
+        }
+
+        &-button {
+            padding: 0 3.5rem;
+        }
+    }
+
+    &__cards {
+        // the div wrapping all cards
+        &-outerdiv {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            // align-items: center;
+            // grid-auto-rows: 3fr;
+            justify-items: center;
+            grid-gap: 2rem;
+        }
+    }
+}

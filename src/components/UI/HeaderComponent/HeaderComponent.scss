@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     @include respond-to(mobile) {
         padding: 2rem;
@@ -41,6 +42,23 @@
         &:hover {
             color: $tertiary-color-1;
             border: 1px solid white;
+        }
+    }
+
+    &__openhours {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        color: white;
+        background: $primary-color-2;
+        padding: 1rem;
+        border-radius: 1rem;
+        border: 1px solid $tertiary-color-1;
+        user-select: none;
+
+        // the text 'Open Hours:'
+        &-text {
+            color: $tertiary-color-3;
         }
     }
 }
