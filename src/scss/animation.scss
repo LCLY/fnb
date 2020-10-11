@@ -1,0 +1,23 @@
+@import './variable.scss';
+
+@mixin animation-mixin-show($name, $translateX_1, $translateX_2, $translateY_1, $translateY_2) {
+    @keyframes #{$name} {
+        0% {
+            opacity: 0;
+            transform: translateX($translateX_1) translateY($translateY_1);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX($translateX_2) translateY($translateY_2);
+        }
+    }
+}
+
+@keyframes appearFromNoWhere {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

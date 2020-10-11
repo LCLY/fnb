@@ -17,12 +17,12 @@ import thunk from 'redux-thunk';
 
 // enable browser redux extension tool
 const composeEnhancers =
-  process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null || compose;
+    process.env.NODE_ENV === 'development'
+        ? window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        : null || compose;
 
 const rootReducer = combineReducers({
-  // general: generalReducer,
+    // general: generalReducer,
 });
 
 export default rootReducer;
@@ -33,11 +33,11 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, s
 // sagaMiddleware.run(watchSomething);
 
 const app = (
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root') || document.createElement('div'));

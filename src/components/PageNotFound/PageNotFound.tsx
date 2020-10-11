@@ -1,7 +1,7 @@
 import React from 'react';
 import './PageNotFound.scss';
 
-function PageNotFound(props) {
+function PageNotFound() {
   return (
     <div>
       <div>404</div>
