@@ -1,64 +1,71 @@
 @import '../../../scss/variable.scss';
 
 .header {
-    width: 100%;
-    height: 40rem;
-    background-image: radial-gradient(rgba(105, 104, 104, 0.7), rgba(41, 40, 40, 0.7)), url('../../../img/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  width: 100%;
+  height: 40rem;
+  background-image: radial-gradient(rgba(105, 104, 104, 0.7), rgba(41, 40, 40, 0.7)), url('../../../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 30%;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include respond-to(mobile) {
+    padding: 2rem;
+  }
+
+  &__outerdiv {
+    @include respond-to(mobile) {
+      padding-bottom: 3rem;
+    }
+  }
+
+  &__desc {
+    width: 60rem;
+    color: white;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
 
     @include respond-to(mobile) {
-        padding: 2rem;
+      width: auto;
     }
+  }
 
-    &__desc {
-        width: 60rem;
-        color: white;
-        margin-bottom: 2rem;
-        margin-top: 1rem;
+  &__title {
+    color: white;
+    filter: brightness(100%);
+    font-size: 4rem;
 
-        @include respond-to(mobile) {
-            width: auto;
-        }
+    @include respond-to(mobile) {
+      font-size: 3rem;
     }
+  }
 
-    &__title {
-        color: white;
-        filter: brightness(100%);
-        font-size: 4rem;
-
-        @include respond-to(mobile) {
-            font-size: 3rem;
-        }
+  &__learnmore {
+    border: 1px solid $tertiary-color-1;
+    &:hover {
+      color: $tertiary-color-1;
+      border: 1px solid white;
     }
+  }
 
-    &__learnmore {
-        border: 1px solid $tertiary-color-1;
-        &:hover {
-            color: $tertiary-color-1;
-            border: 1px solid white;
-        }
+  &__openhours {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;
+    background: $primary-color-2;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid $tertiary-color-1;
+    user-select: none;
+
+    // the text 'Open Hours:'
+    &-text {
+      color: $tertiary-color-3;
     }
-
-    &__openhours {
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
-        color: white;
-        background: $primary-color-2;
-        padding: 1rem;
-        border-radius: 1rem;
-        border: 1px solid $tertiary-color-1;
-        user-select: none;
-
-        // the text 'Open Hours:'
-        &-text {
-            color: $tertiary-color-3;
-        }
-    }
+  }
 }

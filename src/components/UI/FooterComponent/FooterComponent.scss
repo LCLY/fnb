@@ -1,0 +1,122 @@
+@import '../../../scss/variable.scss';
+
+.footer {
+  &__outerdiv {
+    @include darkenColor($primary-color-1, 10%);
+    // background: $primary-color-1;
+    width: 100%;
+    color: white;
+    padding: 5rem 0 2rem 0;
+  }
+
+  &__innerdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__restaurant {
+    &-name {
+      color: rgb(182, 156, 43);
+      font-size: 2rem;
+      font-family: $ubuntu;
+    }
+    &-phone {
+      color: rgb(231, 217, 154);
+    }
+    &-contact {
+      color: $tertiary-color-1;
+    }
+  }
+
+  &__copyright {
+    &-div {
+      margin-top: 2rem;
+      text-align: center;
+      color: $tertiary-color-4;
+    }
+
+    &-policy {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid white;
+      &-link {
+        color: $tertiary-color-4;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  &__col {
+    &--1 {
+      width: 30%;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 5rem;
+    }
+    &--2 {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+    &--3 {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      justify-content: flex-start;
+      padding-left: 5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  &__email {
+    &-text {
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 2rem;
+    }
+    &-div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-input {
+      width: 25rem;
+      margin-right: 1rem;
+    }
+    &-button {
+      width: auto;
+    }
+  }
+
+  &__follow {
+    &-text {
+      font-size: 1.8rem;
+      color: $tertiary-color-3;
+    }
+
+    &-icons {
+      &-div {
+        margin-top: 1rem;
+        & > .fab {
+          font-size: 2.5rem;
+          cursor: pointer;
+          &:hover {
+            color: $tertiary-color-3;
+          }
+          &:active {
+            color: white;
+          }
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
