@@ -1,0 +1,181 @@
+@import '../../../scss/variable.scss';
+
+.footer {
+  &__outerdiv {
+    @include darkenColor($primary-color-1, 10%);
+    // background: $primary-color-1;
+    width: 100%;
+    color: white;
+    padding: 5rem 0 2rem 0;
+  }
+
+  &__innerdiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include respond-to(mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__restaurant {
+    &-name {
+      color: rgb(182, 156, 43);
+      font-size: 2.5rem;
+      font-family: $ubuntu;
+    }
+
+    &-address {
+      @include respond-to(mobile) {
+        font-size: 1.8rem;
+      }
+    }
+    &-phone {
+      color: rgb(231, 217, 154);
+      @include respond-to(mobile) {
+        font-size: 2rem;
+      }
+    }
+    &-contact {
+      color: $tertiary-color-1;
+      @include respond-to(mobile) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__copyright {
+    &-div {
+      margin-top: 2rem;
+      text-align: center;
+      color: $tertiary-color-4;
+      @include respond-to(mobile) {
+        margin-top: 4rem;
+      }
+    }
+
+    &-policy {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid white;
+
+      &-link {
+        color: $tertiary-color-4;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  &__col {
+    @include respond-to(mobile) {
+      width: 100% !important;
+      padding: 0 5rem;
+    }
+
+    &--1 {
+      width: 30%;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 5rem;
+      @include respond-to(mobile) {
+        padding-right: 0rem;
+        justify-content: flex-start;
+      }
+    }
+    &--2 {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+    &--3 {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-start;
+      justify-content: flex-start;
+      padding-left: 5rem;
+      margin-top: 1rem;
+      @include respond-to(mobile) {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+
+  &__email {
+    // 'Join our mailing list
+    &-text {
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      @include respond-to(mobile) {
+        margin-top: 2rem;
+        text-align: left;
+      }
+    }
+    // the div wrapping email input and sign up
+    &-div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+    }
+
+    &-input {
+      width: 25rem;
+      margin-right: 1rem;
+      @include respond-to(mobile) {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+
+    &-button {
+      @include respond-to(mobile) {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.5rem 2rem !important;
+      }
+    }
+  }
+
+  &__follow {
+    &-text {
+      font-size: 1.8rem;
+      color: $tertiary-color-3;
+      @include respond-to(mobile) {
+        margin-top: 3rem;
+      }
+    }
+
+    &-icons {
+      &-div {
+        margin-top: 1rem;
+        @include respond-to(mobile) {
+          margin-top: 3rem;
+          margin-left: 2rem;
+        }
+
+        & > .fab {
+          font-size: 2.5rem;
+          cursor: pointer;
+          &:hover {
+            color: $tertiary-color-3;
+          }
+          &:active {
+            color: white;
+          }
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
