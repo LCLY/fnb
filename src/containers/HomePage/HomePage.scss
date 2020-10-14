@@ -19,7 +19,7 @@
     }
 
     &-menu {
-      margin: 5rem;
+      margin: 5rem 0;
       @include respond-to(mobile) {
         margin-top: 3rem;
       }
@@ -126,6 +126,9 @@
     // the whole div of selects
     &-selects {
       display: flex;
+      @include respond-to(tablet) {
+        flex-direction: column;
+      }
       @include respond-to(medium) {
         flex-direction: column;
       }
@@ -136,6 +139,9 @@
     // A singular select
     &-select {
       margin-right: 1rem;
+      @include respond-to(tablet) {
+        margin-bottom: 1rem;
+      }
       @include respond-to(medium) {
         margin-bottom: 1rem;
       }
@@ -153,8 +159,12 @@
       }
     }
 
+    // the whole filter section for mobile
     &--mobile {
       display: none;
+      @include respond-to(tablet) {
+        display: block;
+      }
       @include respond-to(medium) {
         display: block;
       }
@@ -163,7 +173,11 @@
       }
     }
 
+    // the whole filter section for desktop
     &--desktop {
+      @include respond-to(tablet) {
+        display: none;
+      }
       @include respond-to(medium) {
         display: none;
       }
@@ -182,6 +196,10 @@
       background: $primary-color-2;
       border-radius: 0.5rem;
 
+      @include respond-to(tablet) {
+        width: auto;
+        padding: 1.5rem 2rem;
+      }
       @include respond-to(medium) {
         width: auto;
         padding: 1.5rem 2rem;
@@ -210,12 +228,12 @@
 
   &__cards {
     // the cards themselves
-    width: 35rem;
-    @include respond-to(tablet) {
-      width: 33.5rem;
-    }
+    width: auto;
     @include respond-to(medium) {
-      width: 33.5rem;
+      width: auto;
+    }
+    @include respond-to(tablet) {
+      width: auto;
     }
     @include respond-to(mobile) {
       width: auto;
@@ -232,6 +250,9 @@
       grid-gap: 2rem;
 
       @include respond-to(medium) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include respond-to(tablet) {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -255,6 +276,18 @@
       }
     }
 
+    &-description {
+      @include respond-to(tablet) {
+        font-size: 1.2rem;
+      }
+      @include respond-to(medium) {
+        font-size: 1.3rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.5rem;
+      }
+    }
+
     // the title of food in card
     &-title {
       font-family: 'Staatliches', cursive;
@@ -266,6 +299,16 @@
       color: $primary-color-2;
       // font-weight: bolder;
       font-size: 1.8rem;
+
+      @include respond-to(tablet) {
+        font-size: 1.5rem;
+      }
+      @include respond-to(medium) {
+        font-size: 1.8rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.8rem;
+      }
     }
   }
 

@@ -215,6 +215,7 @@ function HomePage() {
                     <div className="home__cards-image-parent">
                       <Card.Img
                         variant="top"
+                        className="home__cards-image"
                         src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                       />
                       <div className="home__ratings-div">
@@ -245,7 +246,9 @@ function HomePage() {
                         </span>
                       </Card.Title>
 
-                      <Card.Text className="margin_b-2 ">Description {card.description}</Card.Text>
+                      <Card.Text className="margin_b-2 home__cards-description">
+                        Description {card.description}
+                      </Card.Text>
                       <div className="flex-align-center space-between">
                         <div className="flex-align-center">
                           <Button variant="primary" className="home__cards-button">
