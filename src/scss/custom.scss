@@ -5,8 +5,9 @@ $theme-colors: (
   'primary': $primary-color-1,
   'secondary': $secondary-color-1,
   'tertiary': $tertiary-color-1,
-  // 'info': tomato,
-  // 'danger': teal,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  'facebook': #3b5998,
+  'google': #d84b37 // 'info': tomato,
+  // 'danger': teal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 $font-size-base: 1.5rem;
@@ -30,4 +31,8 @@ $font-size-base: 1.5rem;
   @media (min-width: 1200px) {
     max-width: 1140px;
   }
+}
+
+:disabled {
+  cursor: not-allowed;
 }

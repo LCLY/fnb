@@ -92,6 +92,96 @@ function HomePage() {
     },
   ];
 
+  // let objectDataArray = [
+  //   {
+  //     brand: {
+  //       name: 'Brand 1',
+  //       make1: {
+  //         name: 'Make 1',
+  //         body1: { name: 'body1', acc1: 'acc1', acc2: 'acc2' },
+  //         body2: { name: 'body2', acc1: 'acc1', acc2: 'acc2' },
+  //       },
+  //       make2: {
+  //         name: 'Make 2',
+  //         body1: { name: 'body1', acc1: 'acc1', acc2: 'acc2' },
+  //         body2: { name: 'body2', acc1: 'acc1', acc2: 'acc2' },
+  //       },
+  //     },
+  //   },
+  //   {
+  //     brand: {
+  //       name: 'Brand 2',
+  //       make1: {
+  //         name: 'Make 1',
+  //         body1: { name: 'body1', acc1: 'acc1', acc2: 'acc2' },
+  //         body2: { name: 'body2', acc1: 'acc1', acc2: 'acc2' },
+  //       },
+  //       make2: {
+  //         name: 'Make 2',
+  //         body1: { name: 'body1', acc1: 'acc1', acc2: 'acc2' },
+  //         body2: { name: 'body2', acc1: 'acc1', acc2: 'acc2' },
+  //       },
+  //     },
+  //   },
+  // ];
+
+  // <table style={{ width: '50rem', marginLeft: '2rem' }}>
+  //         <tbody>
+  //           <tr>
+  //             <th>Brand</th>
+  //             <th>Make</th>
+  //             <th>Body</th>
+  //             <th>Acc</th>
+  //           </tr>
+  //           {objectDataArray.map((data, index) => {
+  //             console.log(data);
+  //             return (
+  //               <React.Fragment key={index}>
+  //                 {/* 1st mini row */}
+  //                 <tr>
+  //                   <td rowSpan={8}>{data.brand.name}</td>
+  //                   <td rowSpan={4}>{data.brand.make1.name}</td>
+  //                   <td rowSpan={2}>{data.brand.make1.body1.name}</td>
+  //                   <td>{data.brand.make1.body1.acc1}</td>
+  //                 </tr>
+  //                 {/* 2nd mini row */}
+  //                 <tr>
+  //                   <td>{data.brand.make1.body1.acc2}</td>
+  //                 </tr>
+  //                 {/* 3rd mini row */}
+  //                 <tr>
+  //                   <td rowSpan={2}>{data.brand.make2.body2.name}</td>
+  //                   <td>{data.brand.make2.body2.acc1}</td>
+  //                 </tr>
+  //                 {/* 4th mini row */}
+  //                 <tr>
+  //               e2.body2.acc2}</td>
+  //                 <    <td>{data.brand.mak/tr>
+  //                 {/* 5th mini row */}
+  //                 <tr>
+  //                   <td rowSpan={4}>{data.brand.make2.name}</td>
+  //                   <td rowSpan={2}>{data.brand.make1.body1.name}</td>
+  //                   <td>{data.brand.make1.body2.acc1}</td>
+  //                 </tr>
+  //                 {/* 6th mini row */}
+  //                 <tr>
+  //                   <td>{data.brand.make1.body2.acc2}</td>
+  //                 </tr>
+  //                 {/* 7th mini row */}
+  //                 <tr>
+  //                   <td rowSpan={2}>{data.brand.make2.body2.name}</td>
+  //                   <td>{data.brand.make1.body1.acc1}</td>
+  //                 </tr>
+  //                 {/* 8th mini row */}
+  //                 <tr>
+  //                   <td>{data.brand.make1.body2.acc2}</td>
+  //                 </tr>
+  //               </React.Fragment>
+  //             );
+  //           })}
+  //         </tbody>
+  //       </table>
+
   return (
     <div>
       <HeaderComponent />
