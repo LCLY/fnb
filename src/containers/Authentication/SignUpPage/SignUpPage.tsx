@@ -20,24 +20,28 @@ function SignUpPage() {
               <Form.Control type="email" placeholder="example@gmail.com" />
               <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
             </Form.Group>
-            <Form.Group className="signup__name-div" controlId="formBasicName">
-              <section className="signup__name-first">
-                <div>
-                  <Form.Label>First Name</Form.Label>
+            <section className="signup__name-div">
+              <Form.Group controlId="formBasicFirstName">
+                <div className="signup__name-first">
+                  <div>
+                    <Form.Label>First Name</Form.Label>
+                  </div>
+                  <div>
+                    <Form.Control type="text" placeholder="First Name" />
+                  </div>
                 </div>
-                <div>
-                  <Form.Control type="text" placeholder="First Name" />
+              </Form.Group>
+              <Form.Group controlId="formBasicLastName">
+                <div className="signup__name-last">
+                  <div>
+                    <Form.Label>Last Name</Form.Label>
+                  </div>
+                  <div>
+                    <Form.Control type="text" placeholder="Last Name" />
+                  </div>
                 </div>
-              </section>
-              <section className="signup__name-last">
-                <div>
-                  <Form.Label>Last Name</Form.Label>
-                </div>
-                <div>
-                  <Form.Control type="text" placeholder="Last Name" />
-                </div>
-              </section>
-            </Form.Group>
+              </Form.Group>
+            </section>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Enter password here" />
@@ -46,7 +50,6 @@ function SignUpPage() {
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control type="password" placeholder="Type password again here" />
             </Form.Group>
-
             <Button variant="primary" type="submit" className="signup__button-submit">
               Submit
             </Button>

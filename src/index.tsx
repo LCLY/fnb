@@ -4,13 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.scss';
 import './scss/custom.scss';
 import App from './App';
+// 3rd party lib
+import './i18n';
 
 // redux
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { watchAuth } from './store/sagas/index';
-import thunk from 'redux-thunk';
 
 // redux-persist
 import storage from 'redux-persist/lib/storage';
@@ -19,6 +20,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 // reducers
 import authReducer from './store/reducers/auth';
+import generalReducer from './store/reducers/general';
 
 // enable browser redux extension tool
 const composeEnhancers =
@@ -36,14 +38,17 @@ const persistConfig = {
 // combine all reducers
 const rootReducer = combineReducers({
   auth: authReducer,
+  general: generalReducer,
 });
+
+export type AppState = ReturnType<typeof rootReducer>;
 
 // set config to our rootreducer
 const pReducer = persistReducer(persistConfig, rootReducer);
 
 const sagaMiddleware = createSagaMiddleware();
 // use the new persistreducer in creating store
-const store = createStore(pReducer, composeEnhancers(applyMiddleware(thunk, sagaMiddleware)));
+const store = createStore(pReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 
 const persistor = persistStore(store);
 

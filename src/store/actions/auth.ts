@@ -1,5 +1,5 @@
+import { AppActions } from '../types/index';
 import * as actionTypes from './actionTypes';
-
 /* ============================================================================================ */
 /* ============================================================================================ */
 // Clear auth state
@@ -12,7 +12,7 @@ export const clearAuthState = () => {
 /* ============================================================================================ */
 /* ============================================================================================ */
 // Authentication
-export const authenticate = (username, password) => {
+export const authenticate = (username: string, password: string): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE,
     username: username,
@@ -20,19 +20,19 @@ export const authenticate = (username, password) => {
   };
 };
 
-export const authenticateStart = () => {
+export const authenticateStart = (): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE_START,
   };
 };
 
-export const authenticateSucceed = (accessToken) => {
+export const authenticateSucceed = (accessToken: string): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE_SUCCEED,
     accessToken: accessToken,
   };
 };
-export const authenticateFailed = (error) => {
+export const authenticateFailed = (error: string): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE_FAILED,
     error: error,
@@ -48,7 +48,7 @@ export const authenticateFailed = (error) => {
 // };
 
 // check if user is logged in or not
-export const authenticateCheckState = () => {
+export const authenticateCheckState = (): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE_CHECK_STATE,
   };
@@ -61,11 +61,6 @@ export const authenticateCheckState = () => {
 export const logout = () => {
   return {
     type: actionTypes.LOGOUT,
-  };
-};
-export const logoutClearState = () => {
-  return {
-    type: actionTypes.LOGOUT_CLEAR_STATE,
   };
 };
 
@@ -84,7 +79,7 @@ export const getAccessToken = () => {
   };
 };
 
-export const getAccessTokenStart = (refreshToken) => {
+export const getAccessTokenStart = (refreshToken: string) => {
   return {
     type: actionTypes.GET_ACCESS_TOKEN_START,
     refreshToken: refreshToken,
@@ -96,7 +91,7 @@ export const getAccessTokenSucceed = () => {
     type: actionTypes.GET_ACCESS_TOKEN_SUCCEED,
   };
 };
-export const getAccessTokenFailed = (error) => {
+export const getAccessTokenFailed = (error: string) => {
   return {
     type: actionTypes.GET_ACCESS_TOKEN_FAILED,
     error: error,

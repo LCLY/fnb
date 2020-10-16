@@ -1,6 +1,0 @@
-[1010/152748.582:ERROR:settings.cc(430)] Settings version is not 5
-[1010/153748.590:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mdhun\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\11e54444-0422-4574-b3f2-9f24d16c1f6e: The system cannot find the path specified. (0x3)
-[1010/153748.593:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mdhun\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\6cba4d77-2f4a-4b65-8199-56d271a9f52d: The system cannot find the path specified. (0x3)
-[1010/153748.595:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mdhun\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\cec24a9f-2cdd-407b-a052-7acf06b7b76e: The system cannot find the path specified. (0x3)
-[1010/153748.597:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mdhun\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\d08b20bd-5254-4291-b880-64f67992eb6d: The system cannot find the path specified. (0x3)
-[1010/153748.598:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

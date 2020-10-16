@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 import { Form, Button, Spinner } from 'react-bootstrap';
 import * as actions from '../../../store/actions/index';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface OwnProps {}
 
@@ -19,9 +20,31 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
   const initLoginData = { username: '', password: '' }; //store object into var
   type LoginType = typeof initLoginData; //get the type
   const [loginData, setLoginData] = useState<LoginType>(initLoginData); //state the type and place the data in
+  // translation
+  const { t, i18n } = useTranslation(['hello', 'translation']);
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+  };
 
   return (
     <>
+      <button type="button" onClick={() => changeLanguage('zh')}>
+        {t('translation:zh')}
+      </button>
+      <button type="button" onClick={() => changeLanguage('en')}>
+        {t('translation:en')}
+      </button>
+
+      {/* <h1>{t('hello:title', 'Hello.')}</h1>
+      <p>{t('hello:content.text', 'Welcome to hell.')}</p> */}
+
+      <h1>{t('hello:title', 'Hello there.')}</h1>
+
+      <Trans i18nKey="hello:content.text">
+        Welcome to <strong>hell</strong>.
+      </Trans>
+
       <NavbarComponent activePage="" showSignUp={true} />
       <div className="login__outerdiv">
         <div className="login__div">
@@ -35,7 +58,12 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
             </Button>
           </div>
 
-          <Form onSubmit={() => onLogin('test', 'test')}>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onLogin(loginData.username, loginData.password);
+            }}
+          >
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control

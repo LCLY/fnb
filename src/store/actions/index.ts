@@ -11,10 +11,11 @@ export {
   // logout
   logout,
   logoutSucceed,
-  logoutClearState,
   // get access token
   getAccessToken,
   getAccessTokenStart,
   getAccessTokenSucceed,
   getAccessTokenFailed,
 } from './auth';
+
+export { switchLanguage } from './general';

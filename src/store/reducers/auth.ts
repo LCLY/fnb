@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/Utils';
+import { AuthenticateActionTypes, AuthState } from '../types/auth';
 
-const initialState = {
+const initialState: AuthState = {
   error: null,
   loading: false,
   isAdmin: false,
@@ -11,7 +12,7 @@ const initialState = {
 /* ============================================================================================ */
 /* ============================================================================================ */
 // Clear Auth State - reset the states
-const clearAuthState = (state, action) => {
+const clearAuthState = (state: AuthState, _action: any) => {
   return updateObject(state, { error: null });
 };
 
@@ -19,15 +20,14 @@ const clearAuthState = (state, action) => {
 /* ============================================================================================ */
 
 // Authenticate
-const authenticateStart = (state, action) => {
+const authenticateStart = (state: AuthState, _action: any) => {
   return updateObject(state, {
     error: null,
     loading: true,
-    isAdmin: action.isAdmin,
   });
 };
 
-const authenticateSucceed = (state, action) => {
+const authenticateSucceed = (state: AuthState, action: { accessToken: string }) => {
   return updateObject(state, {
     error: null,
     loading: false, //when login succeed stop the loading
@@ -35,7 +35,7 @@ const authenticateSucceed = (state, action) => {
   });
 };
 
-const authenticateFailed = (state, action) => {
+const authenticateFailed = (state: AuthState, action: { error: string }) => {
   // get the error and stop the loading
   return updateObject(state, {
     loading: false,
@@ -47,7 +47,7 @@ const authenticateFailed = (state, action) => {
 /* ============================================================================================ */
 
 // logout
-const logoutClearState = (state, action) => {
+const logoutSucceed = (state: AuthState, _action: any) => {
   // clear the accesstoken when user logout or any state in the future
   return updateObject(state, {
     isAdmin: false,
@@ -58,7 +58,7 @@ const logoutClearState = (state, action) => {
 /* ============================================================================================ */
 /* ============================================================================================ */
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: AuthenticateActionTypes) => {
   switch (action.type) {
     // Clear Auth State
     case actionTypes.CLEAR_AUTH_STATE:
@@ -73,8 +73,8 @@ const reducer = (state = initialState, action) => {
       return authenticateFailed(state, action);
 
     // Logout
-    case actionTypes.LOGOUT_CLEAR_STATE:
-      return logoutClearState(state, action);
+    case actionTypes.LOGOUT_SUCCEED:
+      return logoutSucceed(state, action);
 
     default:
       return state;
