@@ -1,6 +1,11 @@
 {
   "title": "SIGN IN",
-  "content": {
-    "text": "欢迎来到地狱"
+  "submit_button":"Submit",
+  "form": {
+    "email": "Email Address",
+    "email_placeholder":"Enter Email Address",
+    "password": "Password",
+    "password_placeholder":"Enter Password",
+    "forget_password":"Forget Password"
   }
 }

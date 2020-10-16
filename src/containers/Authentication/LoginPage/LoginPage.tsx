@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 import { Form, Button, Spinner } from 'react-bootstrap';
 import * as actions from '../../../store/actions/index';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 interface OwnProps {}
 
@@ -21,34 +21,14 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
   type LoginType = typeof initLoginData; //get the type
   const [loginData, setLoginData] = useState<LoginType>(initLoginData); //state the type and place the data in
   // translation
-  const { t, i18n } = useTranslation(['hello', 'translation']);
-
-  const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code);
-  };
+  const { t } = useTranslation(['loginpage']);
 
   return (
     <>
-      <button type="button" onClick={() => changeLanguage('zh')}>
-        {t('translation:zh')}
-      </button>
-      <button type="button" onClick={() => changeLanguage('en')}>
-        {t('translation:en')}
-      </button>
-
-      {/* <h1>{t('hello:title', 'Hello.')}</h1>
-      <p>{t('hello:content.text', 'Welcome to hell.')}</p> */}
-
-      <h1>{t('hello:title', 'Hello there.')}</h1>
-
-      <Trans i18nKey="hello:content.text">
-        Welcome to <strong>hell</strong>.
-      </Trans>
-
       <NavbarComponent activePage="" showSignUp={true} />
       <div className="login__outerdiv">
         <div className="login__div">
-          <div className="login__title">SIGN IN</div>
+          <div className="login__title">{t('loginpage:title')}</div>
           <div className="login__button-div">
             <Button variant="facebook" className="login__button-facebook" type="submit">
               <i className="fab fa-facebook-square"></i>&nbsp;Facebook
@@ -65,28 +45,28 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
             }}
           >
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>{t('loginpage:form:email', 'Email Address')}</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder={t('loginpage:form:email_placeholder', 'Enter Email Address')}
                 onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{t('loginpage:form:password', 'Password')}</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder={t('loginpage:form:password_placeholder', 'Enter Password')}
                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
               />
             </Form.Group>
             <div className="login__forgetpw-div">
               <a className="login__forgetpw" href="/">
-                Forgot Password?
+                {t('loginpage:form:forget_password', 'Forget Password')}?
               </a>
             </div>
             <Button variant="primary" type="submit" disabled={loading} className="login__button-submit">
-              {loading ? <Spinner animation="border" /> : 'Submit'}
+              {loading ? <Spinner animation="border" /> : t('loginpage:submit_button', 'Submit')}
             </Button>
           </Form>
         </div>
