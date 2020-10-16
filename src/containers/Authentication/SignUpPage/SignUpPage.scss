@@ -1,0 +1,49 @@
+@import '../../../scss/variable.scss';
+
+.signup {
+  // the most outerdiv wrapping the login div
+  &__outerdiv {
+    width: 100%;
+    padding: 5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 15rem);
+  }
+  /* =============================================================== */
+  // the login div itself
+  &__div {
+    width: 35rem;
+    padding: 2rem 2rem 3rem 2rem;
+    border-radius: 1rem;
+    @include shadow-func(0rem, 0.5rem, 2rem, 0.2rem, rgba(70, 49, 23, 0.692));
+  }
+
+  /* =============================================================== */
+  // the 'Sign Up' title
+  &__title {
+    font-size: 3rem;
+    font-family: $ubuntu;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  /*  ============================================================= */
+  //  div wrapping first name and last name
+  &__name {
+    &-div {
+      display: flex;
+    }
+
+    &-first {
+      margin-right: 1rem;
+    }
+  }
+  /*  ============================================================= */
+  &__button {
+    &-submit {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+}

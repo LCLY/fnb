@@ -9,35 +9,38 @@
     padding: 5rem 0 2rem 0;
   }
 
-  &__innerdiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include respond-to(mobile) {
-      flex-direction: column;
-    }
-  }
-
   &__restaurant {
     &-name {
       color: rgb(182, 156, 43);
       font-size: 2.5rem;
       font-family: $ubuntu;
+      @include respond-to(medium) {
+        font-size: 2rem;
+      }
     }
 
     &-address {
+      @include respond-to(tablet) {
+        font-size: 1.8rem;
+      }
       @include respond-to(mobile) {
         font-size: 1.8rem;
       }
     }
     &-phone {
       color: rgb(231, 217, 154);
+      @include respond-to(tablet) {
+        font-size: 2rem;
+      }
       @include respond-to(mobile) {
         font-size: 2rem;
       }
     }
     &-contact {
       color: $tertiary-color-1;
+      @include respond-to(tablet) {
+        font-size: 1.8rem;
+      }
       @include respond-to(mobile) {
         font-size: 1.8rem;
       }
@@ -49,6 +52,9 @@
       margin-top: 2rem;
       text-align: center;
       color: $tertiary-color-4;
+      @include respond-to(tablet) {
+        margin-top: 4rem;
+      }
       @include respond-to(mobile) {
         margin-top: 4rem;
       }
@@ -74,33 +80,41 @@
     }
 
     &--1 {
-      width: 30%;
       display: flex;
-      justify-content: flex-end;
-      padding-right: 5rem;
+      justify-content: flex-start;
+      @include respond-to(tablet) {
+        padding-left: 5rem;
+        padding-right: 0rem;
+      }
       @include respond-to(mobile) {
         padding-right: 0rem;
         justify-content: flex-start;
       }
     }
     &--2 {
-      width: 40%;
       display: flex;
       justify-content: center;
       align-self: flex-start;
       margin-top: 1rem;
+      @include respond-to(tablet) {
+        padding-left: 5rem;
+      }
     }
     &--3 {
-      width: 30%;
       display: flex;
-      flex-direction: column;
-      align-self: flex-start;
-      justify-content: flex-start;
-      padding-left: 5rem;
       margin-top: 1rem;
+      justify-content: center;
+      // flex-direction: column;
+      @include respond-to(tablet) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 5rem;
+      }
       @include respond-to(mobile) {
         flex-direction: row;
         align-items: center;
+        justify-content: flex-start;
       }
     }
   }
@@ -111,6 +125,10 @@
       margin-bottom: 1rem;
       text-align: center;
       font-size: 2rem;
+      @include respond-to(tablet) {
+        margin-top: 2rem;
+        text-align: left;
+      }
       @include respond-to(mobile) {
         margin-top: 2rem;
         text-align: left;
@@ -122,6 +140,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include respond-to(tablet) {
+        justify-content: flex-start;
+      }
       @include respond-to(mobile) {
         flex-direction: column;
       }
@@ -137,6 +159,7 @@
     }
 
     &-button {
+      white-space: nowrap;
       @include respond-to(mobile) {
         width: 100%;
         margin-top: 1rem;
@@ -146,9 +169,23 @@
   }
 
   &__follow {
+    &-outerdiv {
+      display: flex;
+      flex-direction: column;
+      @include respond-to(tablet) {
+        flex-direction: row;
+      }
+      @include respond-to(mobile) {
+        flex-direction: row;
+      }
+    }
+
     &-text {
       font-size: 1.8rem;
       color: $tertiary-color-3;
+      @include respond-to(tablet) {
+        margin-top: 3rem;
+      }
       @include respond-to(mobile) {
         margin-top: 3rem;
       }
@@ -157,6 +194,10 @@
     &-icons {
       &-div {
         margin-top: 1rem;
+        @include respond-to(tablet) {
+          margin-top: 3rem;
+          margin-left: 2rem;
+        }
         @include respond-to(mobile) {
           margin-top: 3rem;
           margin-left: 2rem;

@@ -1,0 +1,72 @@
+@import '../../../scss/variable.scss';
+
+.login {
+  // the most outerdiv wrapping the login div
+  &__outerdiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 15rem);
+  }
+  /* =============================================================== */
+  // the login div itself
+  &__div {
+    width: 35rem;
+    padding: 2rem 2rem 4rem 2rem;
+    border-radius: 1rem;
+    @include shadow-func(0rem, 0.5rem, 2rem, 0.2rem, rgba(70, 49, 23, 0.692));
+  }
+
+  /* =============================================================== */
+  // the 'Sign In' title
+  &__title {
+    font-size: 3rem;
+    font-family: $ubuntu;
+    text-align: center;
+  }
+  /*  ============================================================= */
+  // the facebook, google and submit buttons
+  &__button {
+    // div wrapping facebook and google
+    &-div {
+      display: flex;
+      margin: 2rem 0;
+    }
+    //facebook
+    &-facebook {
+      width: 100%;
+      margin-right: 1rem;
+    }
+
+    // google
+    &-google {
+      width: 100%;
+    }
+
+    // submit button
+    &-submit {
+      width: 100%;
+    }
+  }
+  /*  ============================================================= */
+  &__forgetpw {
+    //  div wrapping the forgetpw <a> tag
+    &-div {
+      margin: 1rem 0;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
+  /*  ============================================================= */
+  // div wrapping sign up 'here' link
+  &__noaccount {
+    margin-top: 2rem;
+
+    &-link {
+      color: $secondary-color-2;
+      text-decoration: underline;
+    }
+  }
+}

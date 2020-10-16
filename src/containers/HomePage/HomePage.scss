@@ -18,6 +18,7 @@
       }
     }
 
+    // menu section
     &-menu {
       margin: 5rem 0;
       @include respond-to(mobile) {
@@ -26,7 +27,9 @@
     }
   }
 
-  // div enclosing the two buttons
+  /* =============================================================== */
+
+  // order div enclosing the two buttons
   &__order {
     &-button {
       padding: 1rem 2rem;
@@ -91,6 +94,7 @@
     }
   }
 
+  /* =============================================================== */
   // div enclosing the text menu
   &__menu {
     &-title {
@@ -115,50 +119,9 @@
       margin-top: 2rem;
     }
   }
-
+  /* =============================================================== */
   // the filters
   &__filter {
-    // the result number
-    &-result {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    // the whole div of selects
-    &-selects {
-      display: flex;
-      @include respond-to(tablet) {
-        flex-direction: column;
-      }
-      @include respond-to(medium) {
-        flex-direction: column;
-      }
-      @include respond-to(mobile) {
-        flex-direction: column;
-      }
-    }
-    // A singular select
-    &-select {
-      margin-right: 1rem;
-      @include respond-to(tablet) {
-        margin-bottom: 1rem;
-      }
-      @include respond-to(medium) {
-        margin-bottom: 1rem;
-      }
-      @include respond-to(mobile) {
-        margin-bottom: 1rem;
-      }
-    }
-    &-button {
-      height: calc(1.5em + 0.75rem + 2px);
-      padding: 0 2rem;
-      // the div wrapping buttons in mobile
-      &-div {
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-
     // the whole filter section for mobile
     &--mobile {
       display: none;
@@ -185,10 +148,58 @@
         display: none;
       }
     }
+
+    // the result number below the search bar above the filter
+    &-result {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    // the whole div of filter selects
+    &-selects {
+      display: flex;
+      @include respond-to(tablet) {
+        flex-direction: column;
+      }
+      @include respond-to(medium) {
+        flex-direction: column;
+      }
+      @include respond-to(mobile) {
+        flex-direction: column;
+      }
+    }
+
+    // singular select
+    &-select {
+      margin-right: 1rem;
+      @include respond-to(tablet) {
+        margin-bottom: 1rem;
+      }
+      @include respond-to(medium) {
+        margin-bottom: 1rem;
+      }
+      @include respond-to(mobile) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    // the apply filter and clear button
+    &-button {
+      height: calc(1.5em + 0.75rem + 2px);
+      padding: 0 2rem;
+
+      // the div wrapping buttons in mobile
+      &-div {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
   }
 
+  /* =============================================================== */
   // the search bar
   &__search {
+    // search bar div
     &-div {
       width: 70rem;
       margin: auto;
@@ -217,7 +228,7 @@
         padding: 0 1.5rem;
       }
 
-      // text within the button
+      // text of the search button
       &-text {
         @include respond-to(mobile) {
           display: none;
@@ -226,6 +237,7 @@
     }
   }
 
+  /* =============================================================== */
   &__cards {
     // the cards themselves
     width: auto;
@@ -238,14 +250,14 @@
     @include respond-to(mobile) {
       width: auto;
     }
-    // the div wrapping all cards
+    // the most outerdiv wrapping all cards
     &-outerdiv {
       display: grid;
       grid-template-rows: auto;
       grid-template-columns: repeat(3, 1fr);
       justify-content: center;
-      // align-items: center;
-      // grid-auto-rows: 3fr;
+      align-items: center;
+      grid-auto-rows: 3fr;
       justify-items: center;
       grid-gap: 2rem;
 
@@ -262,6 +274,7 @@
       }
     }
 
+    // the button in the card
     &-button {
       display: flex;
       align-items: center;
@@ -269,13 +282,14 @@
       @include shadow-func(0, 0.3rem, 0.5rem, 0.1rem, rgba(44, 44, 44, 0.603));
     }
 
-    // the parent div of the image and the star ratings
     &-image {
       &-parent {
+        // the parent div of the image and the star ratings
         position: relative;
       }
     }
 
+    // description under image
     &-description {
       @include respond-to(tablet) {
         font-size: 1.2rem;
@@ -294,6 +308,7 @@
       font-size: 2.5rem;
     }
 
+    // the price tag at bottom right of the cards
     &-price {
       font-family: $ubuntu;
       color: $primary-color-2;
@@ -304,7 +319,7 @@
         font-size: 1.5rem;
       }
       @include respond-to(medium) {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
       @include respond-to(mobile) {
         font-size: 1.8rem;
@@ -312,6 +327,7 @@
     }
   }
 
+  /* =============================================================== */
   // The star ratings
   &__ratings {
     &-div {

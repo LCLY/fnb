@@ -13,14 +13,18 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.6",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^6.6.0",
+    "i18next": "^19.8.2",
+    "i18next-xhr-backend": "^3.2.2",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
+    "react-i18next": "^11.7.3",
     "react-ratings-declarative": "^3.4.1",
     "react-redux": "^7.2.1",
     "react-router": "^5.2.0",
@@ -28,6 +32,7 @@
     "react-scripts": "3.4.3",
     "react-test-renderer": "^16.13.1",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
     "thunk": "0.0.1",
@@ -55,6 +60,7 @@
     ]
   },
   "devDependencies": {
+    "i18next-parser": "^3.3.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }
