@@ -48,6 +48,10 @@
     // submit button
     &-submit {
       width: 100%;
+      display: flex;
+      padding: 0.5rem 0;
+      align-items: center;
+      justify-content: center;
     }
   }
   /*  ============================================================= */
