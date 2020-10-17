@@ -105,6 +105,7 @@ function NavbarComponent({
           </Button>
         </Form>
       </div>
+      {/* Mobile mode */}
       <div
         className="navbar__innerdiv-expand"
         style={{
@@ -118,25 +119,25 @@ function NavbarComponent({
           className={`navbar__innerdiv-expand-link ${activePage === 'home' ? 'active' : ''}`}
           onClick={() => showDropdown && history.push('/')}
         >
-          Home
+          {t('navbar:links:home', 'Home')}
         </div>
         <div
           className={`navbar__innerdiv-expand-link ${activePage === 'menu' ? 'active' : ''}`}
           onClick={() => showDropdown && history.push('/menu')}
         >
-          Menu
+          {t('navbar:links:menu', 'Menu')}
         </div>
         <div
           className={`navbar__innerdiv-expand-link ${activePage === 'gallery' ? 'active' : ''}`}
           onClick={() => showDropdown && history.push('/gallery')}
         >
-          Gallery
+          {t('navbar:links:gallery', 'Gallery')}
         </div>
         <div
           className={`navbar__innerdiv-expand-link ${activePage === 'contact' ? 'active' : ''}`}
           onClick={() => showDropdown && history.push('/contact')}
         >
-          Contact
+          {t('navbar:links:contact', 'Contact')}
         </div>
       </div>
     </Navbar>

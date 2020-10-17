@@ -16,7 +16,7 @@ interface OwnProps {}
 
 type Props = StateProps & DispatchProps & OwnProps;
 
-function LoginPage({ error, loading, isAuthenticated, onLogin, onClearAuthState }: Props): JSX.Element {
+function LoginPage({ error, loading, loginSucceed, isAuthenticated, onLogin, onClearAuthState }: Props): JSX.Element {
   // state
   const initLoginData = { username: '', password: '' }; //store object into var
   type LoginType = typeof initLoginData; //get the type
@@ -25,6 +25,9 @@ function LoginPage({ error, loading, isAuthenticated, onLogin, onClearAuthState 
   // translation
   const { t } = useTranslation(['auth']);
 
+  /* =============================================================================== */
+  /* =============================================================================== */
+  /* useEffect */
   useEffect(() => {
     if (isAuthenticated) {
       let timer = setTimeout(() => {
@@ -46,8 +49,23 @@ function LoginPage({ error, loading, isAuthenticated, onLogin, onClearAuthState 
         clearTimeout(timer);
       };
     }
-  }, [error]);
+  }, [error, onClearAuthState]);
 
+  useEffect(() => {
+    if (loginSucceed) {
+      // if login succeed, hide success notification after 2s
+      let timer = setTimeout(() => {
+        onClearAuthState();
+      }, 2000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [loginSucceed, onClearAuthState]);
+
+  /* =============================================================================== */
+  /* =============================================================================== */
+  /* =============================================================================== */
   return (
     <>
       {/* if redirect is true, go to homepage always */}
@@ -74,7 +92,7 @@ function LoginPage({ error, loading, isAuthenticated, onLogin, onClearAuthState 
             }}
           >
             <Form.Group controlId="formBasicEmail">
-              {isAuthenticated && <Alert variant="success">Login Successful!</Alert>}
+              {loginSucceed && <Alert variant="success">Login Successful!</Alert>}
               {error && <Alert variant="danger">{error}</Alert>}
               <Form.Label>{t('auth:sign_in:form:email:label', 'Email Address')}</Form.Label>
               <Form.Control
@@ -119,10 +137,16 @@ interface StateProps {
   error: string;
   loading: boolean;
   isAuthenticated: boolean;
+  loginSucceed: boolean | null;
 }
 
 const mapStateToProps = (state: any): StateProps => {
-  return { error: state.auth.error, loading: state.auth.loading, isAuthenticated: state.auth.authToken !== null };
+  return {
+    error: state.auth.error,
+    loading: state.auth.loading,
+    loginSucceed: state.auth.loginSucceed,
+    isAuthenticated: state.auth.authToken !== null,
+  };
 };
 
 interface DispatchProps {

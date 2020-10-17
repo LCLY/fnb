@@ -7,6 +7,7 @@ export interface AuthState {
   readonly loading: boolean;
   readonly isAdmin: boolean;
   readonly authToken: string | null;
+  readonly loginSucceed: boolean | null;
 }
 
 // to further breakdown the state, use in mapStateToProps

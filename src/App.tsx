@@ -24,6 +24,7 @@ type Props = OwnProps & StateProps;
 
 function App({ isAuthenticated }: Props) {
   let route = null;
+  console.log(isAuthenticated);
   route = (
     <Switch>
       <Route exact path="/" component={Homepage} />
@@ -41,7 +42,6 @@ function App({ isAuthenticated }: Props) {
   return (
     <>
       <Suspense fallback={<Preloader />}>{route}</Suspense>
-      {!isAuthenticated && <Redirect to="/logout" />}
     </>
   );
 }

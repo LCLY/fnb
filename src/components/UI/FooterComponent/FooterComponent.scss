@@ -9,70 +9,7 @@
     padding: 5rem 0 2rem 0;
   }
 
-  &__restaurant {
-    &-name {
-      color: rgb(182, 156, 43);
-      font-size: 2.5rem;
-      font-family: $ubuntu;
-      @include respond-to(medium) {
-        font-size: 2rem;
-      }
-    }
-
-    &-address {
-      @include respond-to(tablet) {
-        font-size: 1.8rem;
-      }
-      @include respond-to(mobile) {
-        font-size: 1.8rem;
-      }
-    }
-    &-phone {
-      color: rgb(231, 217, 154);
-      @include respond-to(tablet) {
-        font-size: 2rem;
-      }
-      @include respond-to(mobile) {
-        font-size: 2rem;
-      }
-    }
-    &-contact {
-      color: $tertiary-color-1;
-      @include respond-to(tablet) {
-        font-size: 1.8rem;
-      }
-      @include respond-to(mobile) {
-        font-size: 1.8rem;
-      }
-    }
-  }
-
-  &__copyright {
-    &-div {
-      margin-top: 2rem;
-      text-align: center;
-      color: $tertiary-color-4;
-      @include respond-to(tablet) {
-        margin-top: 4rem;
-      }
-      @include respond-to(mobile) {
-        margin-top: 4rem;
-      }
-    }
-
-    &-policy {
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 2px solid white;
-
-      &-link {
-        color: $tertiary-color-4;
-        &:hover {
-          color: white;
-        }
-      }
-    }
-  }
+  /* =============================================== */
   &__col {
     @include respond-to(mobile) {
       width: 100% !important;
@@ -118,7 +55,75 @@
       }
     }
   }
+  /* =============================================== */
+  &__restaurant {
+    &-name {
+      color: rgb(182, 156, 43);
+      font-size: 2.5rem;
+      font-family: $ubuntu;
+      @include respond-to(medium) {
+        font-size: 2rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.8rem;
+      }
+    }
 
+    &-address {
+      @include respond-to(tablet) {
+        font-size: 1.8rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.5rem;
+      }
+    }
+    &-phone {
+      color: rgb(231, 217, 154);
+      @include respond-to(tablet) {
+        font-size: 2rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.5rem;
+      }
+    }
+    &-contact {
+      color: $tertiary-color-1;
+      @include respond-to(tablet) {
+        font-size: 1.8rem;
+      }
+      @include respond-to(mobile) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  /* =============================================== */
+  &__copyright {
+    &-div {
+      margin-top: 2rem;
+      text-align: center;
+      color: $tertiary-color-4;
+      @include respond-to(tablet) {
+        margin-top: 4rem;
+      }
+      @include respond-to(mobile) {
+        margin-top: 4rem;
+      }
+    }
+
+    &-policy {
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid white;
+
+      &-link {
+        color: $tertiary-color-4;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+  /* =============================================== */
   &__email {
     // 'Join our mailing list
     &-text {
@@ -132,6 +137,7 @@
       @include respond-to(mobile) {
         margin-top: 2rem;
         text-align: left;
+        font-size: 1.5rem;
       }
     }
     // the div wrapping email input and sign up
@@ -167,7 +173,7 @@
       }
     }
   }
-
+  /* =============================================== */
   &__follow {
     &-outerdiv {
       display: flex;
@@ -188,6 +194,7 @@
       }
       @include respond-to(mobile) {
         margin-top: 3rem;
+        font-size: 1.5rem;
       }
     }
 
