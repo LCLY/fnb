@@ -5,53 +5,55 @@ import FooterComponent from '../../../components/UI/FooterComponent/FooterCompon
 import NavbarComponent from '../../../components/Navigation/NavbarComponent/NavbarComponent';
 // 3rd party lib
 import { Form, Button } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 function SignUpPage() {
+  const { t } = useTranslation(['auth']);
   return (
     <>
       <NavbarComponent activePage="" showSignUp={false} />
       <div className="signup__outerdiv">
         <div className="signup__div">
-          <div className="signup__title">SIGN UP</div>
+          <div className="signup__title">{t('auth:sign_up:title')}</div>
 
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>{t('auth:sign_up:email:label')}</Form.Label>
               <Form.Control type="email" placeholder="example@gmail.com" />
-              <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+              <Form.Text className="text-muted">{t('auth:sign_up:email:note')}</Form.Text>
             </Form.Group>
             <section className="signup__name-div">
               <Form.Group controlId="formBasicFirstName">
                 <div className="signup__name-first">
                   <div>
-                    <Form.Label>First Name</Form.Label>
+                    <Form.Label>{t('auth:sign_up:first_name:label')}</Form.Label>
                   </div>
                   <div>
-                    <Form.Control type="text" placeholder="First Name" />
+                    <Form.Control type="text" placeholder={t('auth:sign_up:first_name:placeholder')} />
                   </div>
                 </div>
               </Form.Group>
               <Form.Group controlId="formBasicLastName">
                 <div className="signup__name-last">
                   <div>
-                    <Form.Label>Last Name</Form.Label>
+                    <Form.Label>{t('auth:sign_up:last_name:label')}</Form.Label>
                   </div>
                   <div>
-                    <Form.Control type="text" placeholder="Last Name" />
+                    <Form.Control type="text" placeholder={t('auth:sign_up:last_name:label')} />
                   </div>
                 </div>
               </Form.Group>
             </section>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Enter password here" />
+              <Form.Label>{t('auth:sign_up:password:label')}</Form.Label>
+              <Form.Control type="password" placeholder={t('auth:sign_up:password:placeholder')} />
             </Form.Group>
             <Form.Group controlId="formBasicConfirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" placeholder="Type password again here" />
+              <Form.Label>{t('auth:sign_up:confirm_password:label')}</Form.Label>
+              <Form.Control type="password" placeholder={t('auth:sign_up:confirm_password:placeholder')} />
             </Form.Group>
             <Button variant="primary" type="submit" className="signup__button-submit">
-              Submit
+              {t('auth:sign_up:submit_button')}
             </Button>
           </Form>
         </div>

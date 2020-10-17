@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { Dispatch, AnyAction } from 'redux';
 import { Form, Button, Spinner } from 'react-bootstrap';
 import * as actions from '../../../store/actions/index';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 interface OwnProps {}
 
@@ -21,20 +21,20 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
   type LoginType = typeof initLoginData; //get the type
   const [loginData, setLoginData] = useState<LoginType>(initLoginData); //state the type and place the data in
   // translation
-  const { t } = useTranslation(['loginpage']);
+  const { t } = useTranslation(['auth']);
 
   return (
     <>
       <NavbarComponent activePage="" showSignUp={true} />
       <div className="login__outerdiv">
         <div className="login__div">
-          <div className="login__title">{t('loginpage:title')}</div>
+          <div className="login__title">{t('auth:sign_in:title')}</div>
           <div className="login__button-div">
             <Button variant="facebook" className="login__button-facebook" type="submit">
-              <i className="fab fa-facebook-square"></i>&nbsp;Facebook
+              <i className="fab fa-facebook-square"></i>&nbsp;{t('auth:sign_in:form:facebook', 'Facebook')}
             </Button>
             <Button variant="google" className="login__button-google" type="submit">
-              <i className="fab fa-google"></i>&nbsp;Google
+              <i className="fab fa-google"></i>&nbsp;{t('auth:sign_in:form:google', 'Google')}
             </Button>
           </div>
 
@@ -45,36 +45,38 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
             }}
           >
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>{t('loginpage:form:email', 'Email Address')}</Form.Label>
+              <Form.Label>{t('auth:sign_in:form:email:label', 'Email Address')}</Form.Label>
               <Form.Control
                 type="email"
-                placeholder={t('loginpage:form:email_placeholder', 'Enter Email Address')}
+                placeholder={t('auth:sign_in:form:email:placeholder', 'Enter Email Address')}
                 onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>{t('loginpage:form:password', 'Password')}</Form.Label>
+              <Form.Label>{t('auth:sign_in:form:password:label', 'Password')}</Form.Label>
               <Form.Control
                 type="password"
-                placeholder={t('loginpage:form:password_placeholder', 'Enter Password')}
+                placeholder={t('auth:sign_in:form:password:placeholder', 'Enter Password')}
                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
               />
             </Form.Group>
             <div className="login__forgetpw-div">
               <a className="login__forgetpw" href="/">
-                {t('loginpage:form:forget_password', 'Forget Password')}?
+                {t('auth:sign_in:form:password:forget', 'Forget Password')}?
               </a>
             </div>
             <Button variant="primary" type="submit" disabled={loading} className="login__button-submit">
-              {loading ? <Spinner animation="border" /> : t('loginpage:submit_button', 'Submit')}
+              {loading ? <Spinner animation="border" /> : t('auth:sign_in:submit_button', 'Submit')}
             </Button>
           </Form>
         </div>
         <div className="login__noaccount">
-          Don't have an account? Sign up&nbsp;
-          <a className="login__noaccount-link" href="/signup">
-            here
-          </a>
+          <Trans i18nKey="auth:sign_in:form:signup_link">
+            Don't have an account? Sign up&nbsp;
+            <a className="login__noaccount-link" href="/signup">
+              here
+            </a>
+          </Trans>
         </div>
       </div>
       <FooterComponent />

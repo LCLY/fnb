@@ -1,6 +1,12 @@
 {
-  "button":{
-    "sign_in":"登入",
-    "sign_up":"注册账号"
+  "button": {
+    "sign_in": "登入",
+    "sign_up": "注册账号"
+  },
+  "links": {
+    "home": "首页",
+    "menu": "菜单",
+    "gallery": "图库",
+    "contact": "联系"
   }
 }

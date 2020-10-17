@@ -7,7 +7,7 @@ import { Navbar, Form, Button, Nav } from 'react-bootstrap';
 import { Dispatch, AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
-import { useTranslation /* ,Trans */ } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 interface OwnProps {
@@ -36,25 +36,25 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
         <Nav className="mr-auto">
           <div className="navbar__link--desktop">
             <div className={`navbar__link ${activePage === 'home' ? 'active' : ''}`} onClick={() => history.push('/')}>
-              Home
+              {t('navbar:links:home', 'Home')}
             </div>
             <div
               className={`navbar__link ${activePage === 'menu' ? 'active' : ''}`}
               onClick={() => history.push('/menu')}
             >
-              Menu
+              {t('navbar:links:menu', 'Menu')}
             </div>
             <div
               className={`navbar__link ${activePage === 'gallery' ? 'active' : ''}`}
               onClick={() => history.push('/gallery')}
             >
-              Gallery
+              {t('navbar:links:gallery', 'Gallery')}
             </div>
             <div
               className={`navbar__link ${activePage === 'contact' ? 'active' : ''}`}
               onClick={() => history.push('/contact')}
             >
-              Contact
+              {t('navbar:links:contact', 'Contact')}
             </div>
           </div>
           <div className="navbar__link--mobile">
@@ -68,11 +68,9 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
             className="navbar__button-language"
             onClick={() => {
               if (language === 'en') {
-                console.log('change to chinese');
                 changeLanguage('zh');
                 onSwitchLanguage('zh');
               } else {
-                console.log('change to english');
                 changeLanguage('en');
                 onSwitchLanguage('en');
               }

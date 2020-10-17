@@ -8,6 +8,8 @@ import GalleryPage from './containers/GalleryPage/GalleryPage';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import LoginPage from './containers/Authentication/LoginPage/LoginPage';
 import SignUpPage from './containers/Authentication/SignUpPage/SignUpPage';
+/* component */
+import Preloader from './components/UI/Preloader/Preloader';
 
 function App() {
   let route = null;
@@ -24,7 +26,7 @@ function App() {
     </Switch>
   );
 
-  return <Suspense fallback={<p>Loading...</p>}>{route}</Suspense>;
+  return <Suspense fallback={<Preloader />}>{route}</Suspense>;
 }
 
 export default App;
