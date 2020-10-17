@@ -1,5 +1,5 @@
 import { AuthenticateActionTypes } from './auth';
-import { SwitchLanguageAction } from './general';
+import { GeneralActionTypes } from './general';
 
 // Combining all possible redux actions
-export type AppActions = AuthenticateActionTypes | SwitchLanguageAction;
+export type AppActions = AuthenticateActionTypes | GeneralActionTypes;

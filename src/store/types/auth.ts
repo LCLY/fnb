@@ -3,10 +3,15 @@ import * as actionTypes from '../actions/actionTypes';
 
 // initialState for reducers
 export interface AuthState {
-  error: string | null;
-  loading: boolean;
-  isAdmin: boolean;
-  accessToken: string | null;
+  readonly error: string | null;
+  readonly loading: boolean;
+  readonly isAdmin: boolean;
+  readonly authToken: string | null;
+}
+
+// to further breakdown the state, use in mapStateToProps
+export interface IAuthMapState {
+  readonly auth: AuthState;
 }
 
 /* ============================================================== */
@@ -21,7 +26,7 @@ export interface AuthenticateStartAction {
 }
 export interface AuthenticateSucceedAction {
   type: typeof actionTypes.AUTHENTICATE_SUCCEED;
-  accessToken: string;
+  authToken: string;
 }
 export interface AuthenticateFailedAction {
   type: typeof actionTypes.AUTHENTICATE_FAILED;

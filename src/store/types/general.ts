@@ -2,9 +2,15 @@ import * as actionTypes from '../actions/actionTypes';
 
 // initialState for reducers
 export interface GeneralState {
-  language: string;
+  readonly language: string;
 }
 
+// to further breakdown the state, use in mapStateToProps
+export interface IGeneralMapState {
+  readonly general: GeneralState;
+}
+
+/* ============================================================== */
 // actions and payloads
 export interface SwitchLanguageAction {
   type: typeof actionTypes.SWITCH_LANGUAGE;

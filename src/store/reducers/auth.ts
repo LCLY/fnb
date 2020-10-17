@@ -6,7 +6,7 @@ const initialState: AuthState = {
   error: null,
   loading: false,
   isAdmin: false,
-  accessToken: null,
+  authToken: null,
 };
 
 /* ============================================================================================ */
@@ -27,11 +27,11 @@ const authenticateStart = (state: AuthState, _action: any) => {
   });
 };
 
-const authenticateSucceed = (state: AuthState, action: { accessToken: string }) => {
+const authenticateSucceed = (state: AuthState, action: { authToken: string }) => {
   return updateObject(state, {
     error: null,
     loading: false, //when login succeed stop the loading
-    accessToken: action.accessToken,
+    authToken: action.authToken,
   });
 };
 
@@ -48,10 +48,9 @@ const authenticateFailed = (state: AuthState, action: { error: string }) => {
 
 // logout
 const logoutSucceed = (state: AuthState, _action: any) => {
-  // clear the accesstoken when user logout or any state in the future
+  // clear the authToken when user logout or any state in the future
   return updateObject(state, {
-    isAdmin: false,
-    accessToken: null,
+    authToken: null,
   });
 };
 

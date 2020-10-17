@@ -2,9 +2,12 @@ import React from 'react';
 import './FooterComponent.scss';
 
 // 3rd party lib
+import { useTranslation } from 'react-i18next';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
 
 function FooterComponent() {
+  // translation
+  const { t } = useTranslation(['footer']);
   return (
     <section className="footer__outerdiv">
       <Container>
@@ -19,7 +22,7 @@ function FooterComponent() {
                   58000 Kuala Lumpur
                 </div>
                 <div className="margin_t-1">
-                  <span className="footer__restaurant-contact">Contact Us:</span>&nbsp;
+                  <span className="footer__restaurant-contact">{t('footer:contact', 'Contact Us')}:</span>&nbsp;
                   <span className="footer__restaurant-phone">018-888-8888 </span>
                 </div>
               </div>
@@ -28,11 +31,15 @@ function FooterComponent() {
           <Col lg={4} md={4} sm={12} xs={12}>
             <div className="footer__col footer__col--2">
               <div style={{ width: '100%' }}>
-                <div className="footer__email-text">Join our Mailing List</div>
+                <div className="footer__email-text">{t('footer:mailing_list:header', 'Join our Mailing List')}</div>
                 <div className="footer__email-div">
-                  <Form.Control type="email" className="footer__email-input" placeholder="Email Address" />
+                  <Form.Control
+                    type="email"
+                    className="footer__email-input"
+                    placeholder={t('footer:mailing_list:placeholder', 'Email Address')}
+                  />
                   <Button className="footer__email-button" variant="outline-light">
-                    SIGN UP
+                    {t('footer:mailing_list:sign_up', 'Sign Up')}
                   </Button>
                 </div>
               </div>
@@ -41,7 +48,7 @@ function FooterComponent() {
           <Col lg={4} md={4} sm={12} xs={12}>
             <div className="footer__col footer__col--3">
               <div className="footer__follow-outerdiv">
-                <div className="footer__follow-text">Follow us</div>
+                <div className="footer__follow-text">{t('footer:follow_us', 'Follow Us')}</div>
                 <div className="footer__follow-icons-div">
                   <i className="fab fa-instagram"></i>
                   <i className="fab fa-facebook-square"></i>

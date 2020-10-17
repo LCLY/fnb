@@ -7,8 +7,11 @@ import { Navbar, Form, Button, Nav } from 'react-bootstrap';
 import { Dispatch, AnyAction } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
-import { useTranslation /* ,Trans */ } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+// Type of state in mapStateToProps
+import { IAuthMapState } from '../../../store/types/auth';
+import { IGeneralMapState } from '../../../store/types/general';
 
 interface OwnProps {
   activePage: string;
@@ -16,7 +19,14 @@ interface OwnProps {
 }
 type Props = OwnProps & StateProps & DispatchProps & RouteComponentProps;
 
-function NavbarComponent({ history, language, activePage, showSignUp = false, onSwitchLanguage }: Props) {
+function NavbarComponent({
+  history,
+  language,
+  activePage,
+  isAuthenticated,
+  showSignUp = false,
+  onSwitchLanguage,
+}: Props) {
   // state
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
@@ -36,25 +46,25 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
         <Nav className="mr-auto">
           <div className="navbar__link--desktop">
             <div className={`navbar__link ${activePage === 'home' ? 'active' : ''}`} onClick={() => history.push('/')}>
-              Home
+              {t('navbar:links:home', 'Home')}
             </div>
             <div
               className={`navbar__link ${activePage === 'menu' ? 'active' : ''}`}
               onClick={() => history.push('/menu')}
             >
-              Menu
+              {t('navbar:links:menu', 'Menu')}
             </div>
             <div
               className={`navbar__link ${activePage === 'gallery' ? 'active' : ''}`}
               onClick={() => history.push('/gallery')}
             >
-              Gallery
+              {t('navbar:links:gallery', 'Gallery')}
             </div>
             <div
               className={`navbar__link ${activePage === 'contact' ? 'active' : ''}`}
               onClick={() => history.push('/contact')}
             >
-              Contact
+              {t('navbar:links:contact', 'Contact')}
             </div>
           </div>
           <div className="navbar__link--mobile">
@@ -68,11 +78,9 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
             className="navbar__button-language"
             onClick={() => {
               if (language === 'en') {
-                console.log('change to chinese');
                 changeLanguage('zh');
                 onSwitchLanguage('zh');
               } else {
-                console.log('change to english');
                 changeLanguage('en');
                 onSwitchLanguage('en');
               }
@@ -80,12 +88,18 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
           >
             {t('translation:language', '中')}
           </Button>
-          <Button
-            variant="primary margin_r-1"
-            onClick={() => (showSignUp ? history.push('/signup') : history.push('/login'))}
-          >
-            {showSignUp ? t('navbar:button:sign_up', 'Sign up') : t('navbar:button:sign_in', 'Sign in')}
-          </Button>
+          {isAuthenticated ? (
+            <Button variant="primary margin_r-1" onClick={() => history.push('/logout')}>
+              {t('navbar:button:logout', 'Logout')}
+            </Button>
+          ) : (
+            <Button
+              variant="primary margin_r-1"
+              onClick={() => (showSignUp ? history.push('/signup') : history.push('/login'))}
+            >
+              {showSignUp ? t('navbar:button:sign_up', 'Sign up') : t('navbar:button:sign_in', 'Sign in')}
+            </Button>
+          )}
           <Button variant="outline-light">
             <i className="fas fa-shopping-cart"></i>
           </Button>
@@ -131,10 +145,11 @@ function NavbarComponent({ history, language, activePage, showSignUp = false, on
 
 interface StateProps {
   language: string;
+  isAuthenticated: boolean;
 }
 
-const mapStateToProps = (state: any): StateProps => {
-  return { language: state.general.language };
+const mapStateToProps = (state: IAuthMapState & IGeneralMapState): StateProps => {
+  return { language: state.general.language, isAuthenticated: state.auth.authToken !== null };
 };
 
 interface DispatchProps {

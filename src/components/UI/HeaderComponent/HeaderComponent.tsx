@@ -1,8 +1,13 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import './HeaderComponent.scss';
+// 3rd party lib
+import { Button } from 'react-bootstrap';
+import { Trans, useTranslation } from 'react-i18next';
 
 function HeaderComponent() {
+  // translation
+  const { t } = useTranslation(['translation']);
+
   return (
     <header className="header">
       <div className="header__outerdiv">
@@ -15,11 +20,13 @@ function HeaderComponent() {
           Nemo enim ipsam voluptatem quia voluptas
         </div>
         <Button variant="primary" className="header__learnmore">
-          Learn More
+          {t('translation:learn_more', 'Learn More')}
         </Button>
       </div>
       <div className="header__openhours">
-        <span className="header__openhours-text">Open Hours:</span> Mon-Fri 9am-12am
+        <Trans t={t} i18nKey="translation:open_hours">
+          <span className="header__openhours-text">Open Hours:</span> Mon-Fri 9am-12am
+        </Trans>
       </div>
     </header>
   );

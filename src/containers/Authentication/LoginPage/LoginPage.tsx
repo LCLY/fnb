@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LoginPage.scss';
 // component
 import FooterComponent from '../../../components/UI/FooterComponent/FooterComponent';
@@ -6,75 +6,108 @@ import NavbarComponent from '../../../components/Navigation/NavbarComponent/Navb
 
 // 3rd party lib
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Dispatch, AnyAction } from 'redux';
-import { Form, Button, Spinner } from 'react-bootstrap';
+import { useTranslation, Trans } from 'react-i18next';
 import * as actions from '../../../store/actions/index';
-import { useTranslation } from 'react-i18next';
+import { Form, Button, Alert, Spinner } from 'react-bootstrap';
 
 interface OwnProps {}
 
 type Props = StateProps & DispatchProps & OwnProps;
 
-function LoginPage({ loading, onLogin }: Props): JSX.Element {
+function LoginPage({ error, loading, isAuthenticated, onLogin, onClearAuthState }: Props): JSX.Element {
   // state
   const initLoginData = { username: '', password: '' }; //store object into var
   type LoginType = typeof initLoginData; //get the type
   const [loginData, setLoginData] = useState<LoginType>(initLoginData); //state the type and place the data in
+  const [redirect, setRedirect] = useState<boolean>(false);
   // translation
-  const { t } = useTranslation(['loginpage']);
+  const { t } = useTranslation(['auth']);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      let timer = setTimeout(() => {
+        setRedirect(true);
+      }, 500);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (error) {
+      // if there's error, hide error after 2s
+      let timer = setTimeout(() => {
+        onClearAuthState();
+      }, 2000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [error]);
 
   return (
     <>
+      {/* if redirect is true, go to homepage always */}
+      {redirect && <Redirect to="/" />}
       <NavbarComponent activePage="" showSignUp={true} />
       <div className="login__outerdiv">
         <div className="login__div">
-          <div className="login__title">{t('loginpage:title')}</div>
+          {/* Sign in title */}
+          <div className="login__title">{t('auth:sign_in:title')}</div>
           <div className="login__button-div">
+            {/* facebook and google button */}
             <Button variant="facebook" className="login__button-facebook" type="submit">
-              <i className="fab fa-facebook-square"></i>&nbsp;Facebook
+              <i className="fab fa-facebook-square"></i>&nbsp;{t('auth:sign_in:form:facebook', 'Facebook')}
             </Button>
             <Button variant="google" className="login__button-google" type="submit">
-              <i className="fab fa-google"></i>&nbsp;Google
+              <i className="fab fa-google"></i>&nbsp;{t('auth:sign_in:form:google', 'Google')}
             </Button>
           </div>
 
           <Form
             onSubmit={(e) => {
-              e.preventDefault();
+              e.preventDefault(); //preventing page from reloading when submit button is clicked
               onLogin(loginData.username, loginData.password);
             }}
           >
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>{t('loginpage:form:email', 'Email Address')}</Form.Label>
+              {isAuthenticated && <Alert variant="success">Login Successful!</Alert>}
+              {error && <Alert variant="danger">{error}</Alert>}
+              <Form.Label>{t('auth:sign_in:form:email:label', 'Email Address')}</Form.Label>
               <Form.Control
                 type="email"
-                placeholder={t('loginpage:form:email_placeholder', 'Enter Email Address')}
+                placeholder={t('auth:sign_in:form:email:placeholder', 'Enter Email Address')}
                 onChange={(e) => setLoginData({ ...loginData, username: e.target.value })}
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>{t('loginpage:form:password', 'Password')}</Form.Label>
+              <Form.Label>{t('auth:sign_in:form:password:label', 'Password')}</Form.Label>
               <Form.Control
                 type="password"
-                placeholder={t('loginpage:form:password_placeholder', 'Enter Password')}
+                placeholder={t('auth:sign_in:form:password:placeholder', 'Enter Password')}
                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
               />
             </Form.Group>
             <div className="login__forgetpw-div">
               <a className="login__forgetpw" href="/">
-                {t('loginpage:form:forget_password', 'Forget Password')}?
+                {t('auth:sign_in:form:password:forget', 'Forget Password')}?
               </a>
             </div>
             <Button variant="primary" type="submit" disabled={loading} className="login__button-submit">
-              {loading ? <Spinner animation="border" /> : t('loginpage:submit_button', 'Submit')}
+              {loading ? <Spinner animation="border" /> : t('auth:sign_in:submit_button', 'Submit')}
             </Button>
           </Form>
         </div>
         <div className="login__noaccount">
-          Don't have an account? Sign up&nbsp;
-          <a className="login__noaccount-link" href="/signup">
-            here
-          </a>
+          <Trans i18nKey="auth:sign_in:form:signup_link">
+            Don't have an account? Sign up&nbsp;
+            <a className="login__noaccount-link" href="/signup">
+              here
+            </a>
+          </Trans>
         </div>
       </div>
       <FooterComponent />
@@ -83,19 +116,25 @@ function LoginPage({ loading, onLogin }: Props): JSX.Element {
 }
 
 interface StateProps {
+  error: string;
   loading: boolean;
+  isAuthenticated: boolean;
 }
 
 const mapStateToProps = (state: any): StateProps => {
-  return { loading: state.auth.loading };
+  return { error: state.auth.error, loading: state.auth.loading, isAuthenticated: state.auth.authToken !== null };
 };
 
 interface DispatchProps {
   onLogin: typeof actions.authenticate;
+  onClearAuthState: typeof actions.clearAuthState;
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>): DispatchProps => {
-  return { onLogin: (username: string, password: string) => dispatch(actions.authenticate(username, password)) };
+  return {
+    onLogin: (username: string, password: string) => dispatch(actions.authenticate(username, password)),
+    onClearAuthState: () => dispatch(actions.clearAuthState()),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

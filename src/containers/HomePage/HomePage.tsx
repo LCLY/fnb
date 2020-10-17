@@ -4,6 +4,7 @@ import './HomePage.scss';
 import HeaderComponent from '../../components/UI/HeaderComponent/HeaderComponent';
 import FooterComponent from '../../components/UI/FooterComponent/FooterComponent';
 import NavbarComponent from '../../components/Navigation/NavbarComponent/NavbarComponent';
+
 // 3rd party lib
 import Ratings from 'react-ratings-declarative';
 import { Accordion, Container, Form, Button, InputGroup, Card } from 'react-bootstrap';

@@ -26,10 +26,10 @@ export const authenticateStart = (): AppActions => {
   };
 };
 
-export const authenticateSucceed = (accessToken: string): AppActions => {
+export const authenticateSucceed = (authToken: string): AppActions => {
   return {
     type: actionTypes.AUTHENTICATE_SUCCEED,
-    accessToken: accessToken,
+    authToken: authToken,
   };
 };
 export const authenticateFailed = (error: string): AppActions => {

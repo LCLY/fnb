@@ -1,4 +1,4 @@
-import { put /*, delay */ /*, call */ } from 'redux-saga/effects';
+import { put /*, delay */, call } from 'redux-saga/effects';
 import * as actions from '../actions/index';
 import axios from 'axios';
 
@@ -9,7 +9,6 @@ import axios from 'axios';
 export function* authenticationSaga(action: { username: string; password: string }) {
   yield put(actions.authenticateStart());
 
-  console.log(action.username, action.password);
   const authData = {
     email: action.username,
     password: action.password,
@@ -24,10 +23,10 @@ export function* authenticationSaga(action: { username: string; password: string
     // const expirationTime = yield new Date(new Date().getTime() + response.data.expires_in * 1000);
     // yield localStorage.setItem('expirationTime', expirationTime);
     // yield localStorage.setItem('refreshToken', response.data.refresh_token);
-    // yield localStorage.setItem('accessToken', response.data.access_token);
+    yield localStorage.setItem('authToken', response.data.auth_token);
 
-    // yield put(actions.authenticateSucceed(response.data.access_token)); //store access token into redux
-    yield put(actions.authenticateCheckState());
+    yield put(actions.authenticateSucceed(response.data.auth_token)); //store access token into redux
+    // yield put(actions.authenticateCheckState());
   } catch (error) {
     if (error.response) {
       /*
@@ -37,7 +36,7 @@ export function* authenticationSaga(action: { username: string; password: string
       console.log('error response data:', error.response.data);
       console.log('error response status:', error.response.status);
       console.log('error response header:', error.response.headers);
-      yield put(actions.authenticateFailed(error.response.data));
+      yield put(actions.authenticateFailed(error.response.data.error));
     } else if (error.request) {
       /*
        * The request was made but no response was received, `error.request`
@@ -135,14 +134,13 @@ export function* authenticationSaga(action: { username: string; password: string
 
 // /* ========== Logout ========== */
 // // Logout the user
-// export function* logoutSaga(action) {
-//   yield call([localStorage, 'removeItem'], 'isAdmin');
-//   yield call([localStorage, 'removeItem'], 'accessToken');
-//   yield call([localStorage, 'removeItem'], 'refreshToken');
-//   yield call([localStorage, 'removeItem'], 'expirationTime');
-//   yield call([localStorage, 'clear']);
-//   yield put(actions.logoutSucceed());
-// }
+export function* logoutSaga() {
+  yield call([localStorage, 'removeItem'], 'authToken');
+  // yield call([localStorage, 'removeItem'], 'refreshToken');
+  // yield call([localStorage, 'removeItem'], 'expirationTime');
+  yield call([localStorage, 'clear']);
+  yield put(actions.logoutSucceed());
+}
 
 // /* ============================================================================================ */
 // /* ============================================================================================ */
