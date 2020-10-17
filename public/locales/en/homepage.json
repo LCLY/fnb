@@ -1,0 +1,55 @@
+{
+  "header": {
+    "title": "ORDER UP BITCHES, BUMIPUTERA ONLY",
+    "button": {
+      "regular": "Regular <1>Ordering</1>",
+      "catering": "Catering / Scheduling <1>Ordering</1>"
+    }
+  },
+  "search": {
+    "placeholder": "What would you like to eat today?",
+    "button": "Search"
+  },
+  "items": "Items",
+  "filter": {
+    "title": "Apply filter",
+    "button": {
+      "filter": "Filter",
+      "clear": "Clear"
+    },
+    "category": {
+      "cuisine": {
+        "text": "Cuisine",
+        "american": "American",
+        "malaysia": "Malaysian",
+        "thai": "Thai",
+        "chinese": "Chinese",
+        "indian": "Indian"
+      },
+      "meal_type": {
+        "text": "Type of Meal",
+        "breakfast": "Breakfast",
+        "lunch": "Lunch",
+        "dinner": "Dinner"
+      },
+      "dish_type": {
+        "text": "Type of Dish",
+        "burgers": "Burgers",
+        "noodles": "Noodles",
+        "rice": "Rice",
+        "drinks": "Drinks",
+        "salad": "Salad",
+        "soup": "Soup"
+      },
+      "dietary_needs": {
+        "text": "Dietary Needs",
+        "gluten": "Gluten Free",
+        "healthy": "Healthy",
+        "keto": "Keto-Friendly",
+        "vegetarian": "Vegetarian",
+        "meat": "Meat Lover",
+        "halal": "Halal"
+      }
+    }
+  }
+}

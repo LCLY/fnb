@@ -7,13 +7,14 @@ const initialState: AuthState = {
   loading: false,
   isAdmin: false,
   authToken: null,
+  loginSucceed: null,
 };
 
 /* ============================================================================================ */
 /* ============================================================================================ */
 // Clear Auth State - reset the states
 const clearAuthState = (state: AuthState, _action: any) => {
-  return updateObject(state, { error: null });
+  return updateObject(state, { error: null, loginSucceed: null });
 };
 
 /* ============================================================================================ */
@@ -24,6 +25,7 @@ const authenticateStart = (state: AuthState, _action: any) => {
   return updateObject(state, {
     error: null,
     loading: true,
+    loginSucceed: null,
   });
 };
 
@@ -32,6 +34,7 @@ const authenticateSucceed = (state: AuthState, action: { authToken: string }) =>
     error: null,
     loading: false, //when login succeed stop the loading
     authToken: action.authToken,
+    loginSucceed: true,
   });
 };
 
@@ -40,6 +43,7 @@ const authenticateFailed = (state: AuthState, action: { error: string }) => {
   return updateObject(state, {
     loading: false,
     error: action.error,
+    loginSucceed: false,
   });
 };
 

@@ -1,0 +1,55 @@
+{
+  "header": {
+    "title": "快点来点餐你们这些土著",
+    "button": {
+      "regular": "正常订购",
+      "catering": "餐饮业 / 排程订购"
+    }
+  },
+  "search": {
+    "placeholder": "您今天想吃什么?",
+    "button": "搜寻"
+  },
+  "items": "品目",
+  "filter": {
+    "title": "应用筛选",
+    "button": {
+      "filter": "筛选",
+      "clear": "清除"
+    },
+    "category": {
+      "cuisine": {
+        "text": "菜肴",
+        "american": "美式",
+        "malaysia": "马式",
+        "thai": "泰式",
+        "chinese": "中式",
+        "indian": "印式"
+      },
+      "meal_type": {
+        "text": "餐类",
+        "breakfast": "早餐",
+        "lunch": "午餐",
+        "dinner": "晚餐"
+      },
+      "dish_type": {
+        "text": "菜类",
+        "burgers": "汉堡",
+        "noodles": "面类",
+        "rice": "饭类",
+        "drinks": "饮料",
+        "salad": "沙拉",
+        "soup": "汤类"
+      },
+      "dietary_needs": {
+        "text": "饮食需求",
+        "gluten": "不含麸质",
+        "healthy": "健康",
+        "keto": "酮饮食",
+        "vegetarian": "素食",
+        "meat": "肉类爱好者",
+        "halal": "清真"
+      }
+    }
+  }
+}
