@@ -27,7 +27,7 @@
         padding-right: 0rem;
       }
       @include respond-to(mobile) {
-        padding-right: 0rem;
+        padding: 0 5rem;
         justify-content: flex-start;
       }
     }
@@ -121,6 +121,7 @@
       }
 
       color: $tertiary-color-1;
+      margin-right: 1rem;
       @include respond-to(medium) {
         font-size: 1.8rem;
       }
