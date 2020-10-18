@@ -3,7 +3,7 @@ import './FooterComponent.scss';
 
 // 3rd party lib
 import { useTranslation } from 'react-i18next';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import { Form, Button, Col, Row, Container } from 'react-bootstrap';
 
 function FooterComponent() {
   // translation
@@ -21,9 +21,9 @@ function FooterComponent() {
                   No. 2, Jalan 1/13a, <br />
                   58000 Kuala Lumpur
                 </div>
-                <div className="margin_t-1">
-                  <span className="footer__restaurant-contact">{t('footer:contact', 'Contact Us')}:</span>&nbsp;
-                  <span className="footer__restaurant-phone">018-888-8888 </span>
+                <div className="footer__restaurant-contact-div">
+                  <span className="footer__restaurant-contact">{t('footer:contact', 'Contact Us')}:</span>
+                  <span className="footer__restaurant-phone">018-888-8888</span>
                 </div>
               </div>
             </div>
@@ -59,7 +59,6 @@ function FooterComponent() {
           </Col>
         </Row>
       </Container>
-
       <div className="footer__copyright-div">
         © 2020 Eah Food
         <span className="footer__copyright-policy">

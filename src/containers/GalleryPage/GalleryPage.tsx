@@ -3,12 +3,12 @@ import React from 'react';
 import NavbarComponent from '../../components/Navigation/NavbarComponent/NavbarComponent';
 
 function GalleryPage() {
-    return (
-        <div>
-            <NavbarComponent activePage="gallery" />
-            Gallery
-        </div>
-    );
+  return (
+    <div>
+      <NavbarComponent activePage="gallery" />
+      Gallery
+    </div>
+  );
 }
 
 export default GalleryPage;
